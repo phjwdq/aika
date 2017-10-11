@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>background</title>
+	<style>
+		.box{
+			border: 1px solid green;
+			width: 50%;
+			height: 500px;
+			overflow: scroll;
+			background: #ff0000 url(img/1.jpg)no-repeat local;/* scroll fixed 50% 50% */
+			/*local 上下的50%不起作用
+			对于可以滚动的元素（设置为overflow:scroll的元素）,设置background-attachment:local，则背景会随内容的滚动而滚动。
+
+因为背景图是相对于元素自身内容定位，开始固定，元素出现滚动条后背景图随内容而滚动。
+*/
+
+			/*fixed 相对于浏览器居中*/
+
+			/*scroll
+			对于scroll，一般情况背景随内容滚动，但是有一种情况例外。
+
+对于可以滚动的元素（设置为overflow:scroll的元素）。当background-attachment设置为scroll时，背景图不会随元素内容的滚动而滚动
+*/
+		}
+		.box p{
+			width: 100px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<p>
+			规划和公开寄过来回过神来
+			规划和公开寄过来回过神来
+规划和公开寄过来回过神来
+			规划和公开寄过来回过神来
+
+			规划和公开寄过来回过神来
+			规划和公开寄过来回过神来
+			规划和公开寄过来回过神来
+			规划和公开寄过来回过神来
+			规划和公开寄过来回过神来
+			规划和公开寄过来回过神来
+			规划和公开寄过来回过神来
+			规划和公开寄过来回过神来
+			规划和公开寄过来回过神来
+			规划和公开寄过来回过神来
+			规划和公开寄过来回过神来
+			规划和公开寄过来回过神来
+			规划和公开寄过来回过神来
+			规划和公开寄过来回过神来
+
+		</p>
+	</div>
+</body>
+</html>
