@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>this</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	// 1、函数调用 指向window
+	// 1.1普通的函数调用
+	// function test(){
+	// 	this.x = 100;
+	// 	console.log(this);//window{}
+	// 	console.log(this.x);//100
+	// }
+	// test();
+	// 1.2
+	// var x = 100;
+	// function test(){
+	// 	this.x = 200;
+	// 	console.log(this.x);//200
+	// }
+	// console.log(x);//100
+	// test();
+	// console.log(x);//200 函数执行后 污染全局变量
+
+	
+	// // 1.3 与2比较
+	// var a = 100;
+	// function test(){
+	// 	console.log(this.a);//100
+	// 	console.log(this);//window{...}对象
+	// 	console.log(this==window);//true
+	// }
+	// 不要写test();
+	// var t = new test();//构造就好执行函数！
+	// //函数中14-16结果如下
+	// // undefined  test{}  false
+	// console.log(t.a);//undefined
+
+	// 2、作为构造函数调用
+	// 构造函数：通过这个函数生成了新的对象，this指向这个新的对象
+	// var a = 100;
+	// function test(){
+	// 	this.a = 200;
+	// 	console.log(this.a);
+	// 	console.log(this);
+	// 	console.log(this==window);
+	// }
+	// 不要写// test();//200 window{} true
+	// var t = new test();//200 test{} false
+	// console.log(t.a); //200
+	// console.log(a);//100 
+	//但是 如果提前运行了test(),结果是200！污染全局变量
+	// 
+
+	// 3、作为对象的方法使用
+	// function test(){//先声明方法
+	// 	console.log(this.x);
+	// }
+	// var o = {};//空对象
+	// o.x = 100;//属性x
+	// o.m = test;//方法test
+	// o.m();//100
+	
+	// 4、apply()
+	var x = 100;//必须写
+	function test(){
+		console.log(this.x);
+	}
+	var o = {};
+	o.x = 200;
+	o.m = test;
+	o.m.apply();//100
+	o.m();//200
+	o.m.apply();//100
+	// apply()省略参数 则this表示全局的
+	o.m.apply(o);//200
+	// apply可以改变函数对象的this指向
+</script>
+</html>
